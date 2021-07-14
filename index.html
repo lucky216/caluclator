@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>calculator</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <h1 style="background-color:blueviolet;color: white;text-align: center;">calculator</h1>
+  
+  <div id="app" class="container" v-cloak>
+    <div class="calculator">
+      <div class="caluclator__result" >
+        <span ref="calcualtorFormula" class="caluclator__formula" :style="{ 'font-size': formulaFontSize + 'px' }">
+          {{ formula }}
+        </span>
+        <span ref="calculatorTotal" class="calculator__total" :style="{ 'font-size': resultFontSize + 'px' }">
+          {{ total | commaFormat }}
+        </span>
+      </div>
+      <div class="calculator__key">
+        <div class="calculator__key--basic calculator__key-1" @click="addNumber(1)">1</div>
+        <div class="calculator__key--basic calculator__key-2" @click="addNumber(2)">2</div>
+        <div class="calculator__key--basic calculator__key-3" @click="addNumber(3)">3</div>
+        <div class="calculator__key--basic calculator__key-4" @click="addNumber(4)">4</div>
+        <div class="calculator__key--basic calculator__key-5" @click="addNumber(5)">5</div>
+        <div class="calculator__key--basic calculator__key-6" @click="addNumber(6)">6</div>
+        <div class="calculator__key--basic calculator__key-7" @click="addNumber(7)">7</div>
+        <div class="calculator__key--basic calculator__key-8" @click="addNumber(8)">8</div>
+        <div class="calculator__key--basic calculator__key-9" @click="addNumber(9)">9</div>
+        <div class="calculator__key--basic calculator__key-AC" @click="reset()">AC</div>
+        <div class="calculator__key--basic calculator__key-0" @click="addNumber(0)">0</div>
+        <div class="calculator__key--basic calculator__key-00" @click="addDoubleZero()">00</div>
+        <div class="calculator__key--basic calculator__key-dot" @click="addDot()">.</div>
+        <div class="calculator__key--basic calculator__key-delete" @click="deleteNumber()">⌫</div>
+        <div class="calculator__key--basic calculator__key-equal" @click="calculateTotal()">=</div>
+        <div class="calculator__key--basic calculator__key-divide calculator__key--operator" @click="addOperation('÷')">÷</div>
+        <div class="calculator__key--basic calculator__key-multiply calculator__key--operator" @click="addOperation('x')">×</div>
+        <div class="calculator__key--basic calculator__key-plus calculator__key--operator" @click="addOperation('+')">+</div>
+        <div class="calculator__key--basic calculator__key-minus calculator__key--operator" @click="addOperation('-')">−</div>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdn.bootcss.com/decimal.js/10.0.2/decimal.min.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
